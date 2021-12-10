@@ -1,14 +1,28 @@
-// 모듈
+// path와 fs, ejs 모듈 불러오기
 const path = require("path");
 const fs = require("fs");
+const ejs = require("ejs");
+const directoryPath = path.join(__dirname, "contents");
 
-// contents 디렉토리 경로
-const directoryPath = path.join(__dirname,"contents");
-console.log(directoryPath);
-// contents 디렉토리에 있는 파일 읽기
 const contentFiles = fs.readdirSync(directoryPath);
-console.log(contentFiles);
+// 사용자 파일 읽기
+const authorFile = fs.readFileSync("./author/author.md", "utf8");
 
+// 템플릿 가져오기
+const articleHtmlFormat = fs.readFileSync(
+  "./templates/article_format.html",
+  "utf8"
+);
+const listHtmlFormat = fs.readFileSync("./templates/list_format.html", "utf8");
+const layoutHtmlFormat = fs.readFileSync(
+  "./templates/layout_format.html",
+  "utf8"
+);
+const HeaderHtmlFormat = fs.readFileSync(
+  "./templates/header_format.html",
+  "utf8"
+);
+// mardown-it & highlightjs
 const hljs = require("highlight.js");
 
 const md = require("markdown-it")({
@@ -36,68 +50,98 @@ const md = require("markdown-it")({
   }
 });
 
-
-  const dir = "./deploy";
-  if (!fs.existsSync(dir)) {
-    fs.mkdirSync(dir);
-  }
-  
-
-
-
-  const ejs = require("ejs");
-
-
-
-  const layoutHtmlFormat = fs.readFileSync(
-    "./templates/layout_format.html",
-    "utf8"
-  );
-  const articleHtmlFormat = fs.readFileSync(
-    "./templates/article_format.html",
-    "utf8"
-  );
-
-
-
-  
+// deploy디렉토리 생성
+const dir = "./deploy";
+if (!fs.existsSync(dir)) {
+  fs.mkdirSync(dir);
+}
 // 확장자를 제외한 파일 이름을 얻는 함수
-getHtmlFileName = file => {
-    return file.slice(0, file.indexOf(".")).toLowerCase();
-  };
-  // deploy 폴더 안에 넣은 파일의 리스트
-  const deployFiles = [];
-  // map함수로 content안에 있는 파일들을 반복문을 돌면서 deploy안에 html파일 생성
-  contentFiles.map(file => {
-    const body = fs.readFileSync(`./contents/${file}`, "utf8");
+const getHtmlFileName = file => {
+  return file.slice(0, file.indexOf(".")).toLocaleLowerCase();
+};
+// 본문 추출 함수
+const extractBody = text => {
+  return text.replace(/(\+{3})([\s|\S]+?)(\1)/, "");
+};
 
+// 글 정보 추출 함수
 
+const extractValue = text => {
+  const string = text.match(/(\+{3})([\s|\S]+?)\1/);
 
-
-  
-    const convertedBody = md.render(body);
+  if (!string) {
+    return null;
+  } else {
+    const valueLines = string[2].match(/[^\r\n]+/g);
+    const values = {};
+    if (valueLines) {
+      valueLines.map(valueLine => {
+        const keyAndValue = valueLine.match(/(.+?)=(.+)/);
+        if (keyAndValue) {
+          const key = keyAndValue[1].replace(/\s/g, "");
+          const value = keyAndValue[2].replace(/['"]/g, "").trim();
+          values[key] = value;
+        }
+      });
+      return values;
+    }
+  }
+};
+// 사용자 값 읽기
+const authorValue = extractValue(authorFile);
+console.log(authorValue);
+// deploy 폴더 안에 넣은 파일의 리스트
+const deployFiles = [];
+const header = ejs.render(HeaderHtmlFormat, {
+  title: authorValue.title,
+  logo: authorValue.logo,
+  github: authorValue.github
+});
+const authorBody = extractBody(authorFile);
+const author = ejs.render(articleHtmlFormat, {
+  title: "ABOUT",
+  date: "",
+  body: authorBody,
+  disqus: authorValue.disqus
+});
+const aboutHtml = ejs.render(layoutHtmlFormat, {
+  content: author,
+  header
+});
+fs.writeFileSync(`./deploy/about.html`, aboutHtml);
+// map함수로 content안에 있는 파일들을 반복문을 돌면서 deploy안에 html파일 생성
+contentFiles.map(file => {
+  const text = fs.readFileSync(`./contents/${file}`, "utf8");
+  const convertedBody = md.render(extractBody(text));
+  const value = extractValue(text);
+  if (value) {
+    const title = value.title || " ";
+    const date = value.date || " ";
+    const desc = value.desc || " ";
     const articleContent = ejs.render(articleHtmlFormat, {
-      body: convertedBody
+      body: convertedBody,
+      title,
+      date,
+      disqus: authorValue.disqus
     });
+
     const articleHtml = ejs.render(layoutHtmlFormat, {
-      content: articleContent
+      content: articleContent,
+      header
     });
     const fileName = getHtmlFileName(file);
     fs.writeFileSync(`./deploy/${fileName}.html`, articleHtml);
-    deployFiles.push(fileName);
-  });
-
-
-
-  // list_format.html파일 읽기
-const listHtmlFormat = fs.readFileSync("./templates/list_format.html", "utf8");
+    deployFiles.push({ path: `${fileName}.html`, title, date, desc });
+  }
+});
 
 // index.html파일 생성 / 파일 목록 렌더
 const listContent = ejs.render(listHtmlFormat, {
   lists: deployFiles
 });
 const listHtml = ejs.render(layoutHtmlFormat, {
-  content: listContent
+  content: listContent,
+  header
 });
 
 fs.writeFileSync("./index.html", listHtml);
