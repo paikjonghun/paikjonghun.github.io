@@ -1,0 +1,25 @@
+{
+  "name": "paikjonghun_blog",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://paikjonghun@github.com/paikjonghun/paikjonghun.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paikjonghun/paikjonghun.github.io/issues"
+  },
+  "homepage": "https://github.com/paikjonghun/paikjonghun.github.io#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "highlight.js": "^11.3.1",
+    "markdown-it": "^12.3.0"
+  }
+}
