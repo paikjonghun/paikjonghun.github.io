@@ -42,7 +42,12 @@ const md = require("markdown-it")({
     fs.mkdirSync(dir);
   }
   
+
+
+
   const ejs = require("ejs");
+
+
 
   const layoutHtmlFormat = fs.readFileSync(
     "./templates/layout_format.html",
@@ -65,6 +70,10 @@ getHtmlFileName = file => {
   // map함수로 content안에 있는 파일들을 반복문을 돌면서 deploy안에 html파일 생성
   contentFiles.map(file => {
     const body = fs.readFileSync(`./contents/${file}`, "utf8");
+
+
+
+
   
     const convertedBody = md.render(body);
     const articleContent = ejs.render(articleHtmlFormat, {
@@ -77,3 +86,18 @@ getHtmlFileName = file => {
     fs.writeFileSync(`./deploy/${fileName}.html`, articleHtml);
     deployFiles.push(fileName);
   });
+
+
+
+  // list_format.html파일 읽기
+const listHtmlFormat = fs.readFileSync("./templates/list_format.html", "utf8");
+
+// index.html파일 생성 / 파일 목록 렌더
+const listContent = ejs.render(listHtmlFormat, {
+  lists: deployFiles
+});
+const listHtml = ejs.render(layoutHtmlFormat, {
+  content: listContent
+});
+
+fs.writeFileSync("./index.html", listHtml);
