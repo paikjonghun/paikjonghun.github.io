@@ -7,14 +7,14 @@ module.exports = {
     // You can overwrite values here that are used for the SEO component
     // You can also add new values here to query them like usual
     // See all options: https://github.com/LekoArts/gatsby-themes/blob/main/themes/gatsby-theme-minimal-blog/gatsby-config.js
-    siteTitle: `Paik Jonghun`,
+    siteTitle: `백종훈의 블로그`,
     siteTitleAlt: `Paik Jonghun`,
     siteHeadline: `백종훈의 블로그`,
     siteUrl: `https://minimal-blog.lekoarts.de`,
     siteDescription: `안녕하세요. 백종훈입니다.`,
     siteLanguage: `kr`,
     siteImage: ``,
-    author: `@백종훈`,
+    author: `@hun3072`,
   },
   plugins: [
     {
@@ -23,18 +23,18 @@ module.exports = {
       options: {
         navigation: [
           {
-            title: `Blog`,
+            title: `블로그`,
             slug: `/blog`,
           },
           {
-            title: `About`,
+            title: `정보`,
             slug: `/about`,
           },
         ],
         externalLinks: [
           {
             name: `Twitter`,
-            url: `https://twitter.com/lekoarts_de`,
+            url: `https://twitter.com/hun3072`,
           },
           {
             name: `Homepage`,
