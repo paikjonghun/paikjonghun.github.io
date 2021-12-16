@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---node-modules-lekoarts-gatsby-theme-minimal-blog-core-src-templates-tag-query-tsx",
+    "path": "/tags/소개",
+    "result": {"data":{"allPost":{"nodes":[{"slug":"/백종훈을-소개합니다","title":"백종훈을 소개합니다.","date":"17.12.2021","excerpt":"소개합니다. 소개합니다. 소개합니다. 가나다라마바사아자차카타파하. 25년 전, 켄트 벡과 나는 텍트로닉스사 기술 센터 안의 카페테리아에 앉아서, 스몰토크-8…","timeToRead":5,"description":"백종훈을 소개하는 페이지입니다.","tags":[{"name":"백종훈","slug":"백종훈"},{"name":"소개","slug":"소개"}]}]}},"pageContext":{"slug":"소개","name":"소개","formatString":"DD.MM.YYYY"}},
+    "staticQueryHashes": ["2744905544","3090400250","318001574"]}
