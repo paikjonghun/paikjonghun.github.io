@@ -14,7 +14,7 @@ module.exports = {
     siteDescription: `안녕하세요. 백종훈입니다.`,
     siteLanguage: `kr`,
     siteImage: ``,
-    author: `백종훈`,
+    author: `@백종훈`,
   },
   plugins: [
     {
