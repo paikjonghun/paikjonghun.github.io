@@ -10,7 +10,7 @@ module.exports = {
     siteTitle: `Paik Jonghun`, // 사이트 맨 위 타이틀
     siteTitleAlt: `Paik Jonghun Blog`, // 링크에서 뜨는 타이틀
     siteHeadline: `백종훈`,
-    siteUrl: `https://www.naver.com/`,
+    siteUrl: `https://paikjonghun.github.io/`, // 링크에서 뜨는 이미지?
     siteDescription: `안녕하세요. 백종훈입니다.`, // 링크에서 뜨는 설명
     siteLanguage: `kr`,
     siteImage: `/IMG_2336.jpeg`, // 링크에서 뜨는 사진
@@ -23,16 +23,16 @@ module.exports = {
       options: {
         navigation: [
           {
-            title: `블로그`,
+            title: `Development`, // 페이지와 slug만 같으면 title이 달라도 연결됨
             slug: `/blog`,
           },
           {
-            title: `정보`,
-            slug: `/about`,
+            title: `Essay`,
+            slug: `/essay`,
           },
           {
-            title: `배움`,
-            slug: `/learning`,
+            title: `About`,
+            slug: `/about`,
           },
         ],
         externalLinks: [

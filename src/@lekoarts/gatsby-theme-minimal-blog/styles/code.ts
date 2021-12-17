@@ -169,7 +169,7 @@ const code = {
       background: `#f7df1e`,
       color: `black`,
     },
-    "pre[class~='language-java']:before": { // 추가한 것
+    "pre[class~='language-java']:before": { // 추가한 것 - 추가했기 때문에 신텍스 하이라이트 가능!
       content: `'java'`,
       background: `#61dafb`,
       color: `black`,
