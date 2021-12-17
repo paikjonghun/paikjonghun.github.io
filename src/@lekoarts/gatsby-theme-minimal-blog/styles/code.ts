@@ -164,6 +164,22 @@ const code = {
       content: `'diff'`,
       background: `#e6ffed`,
     },
+    "pre[class~='language-hcl']:before": { // 추가한 것
+      content: `'hcl'`,
+      background: `#f7df1e`,
+      color: `black`,
+    },
+    "pre[class~='language-java']:before": { // 추가한 것
+      content: `'java'`,
+      background: `#61dafb`,
+      color: `black`,
+    },
+    'pre[class~="language-csharp"]:before': { // 추가한 것
+      content: `"csharp"`,
+      background: `#61dafb`,
+      color: `black`,
+    },
+    
   },
   '.gatsby-highlight > code[class*="language-"], .gatsby-highlight > pre[class=*="language-"]': {
     wordSpacing: `normal`,
