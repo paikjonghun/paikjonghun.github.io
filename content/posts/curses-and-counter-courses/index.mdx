@@ -18,7 +18,7 @@ canonicalUrl: ""
 
 지금까지 학원에서 배운 것은 **Java**, 그리고 **Database**이다.
 
-```JAVA
+```java
 Public Class Test01{
     Public Static Void main(String[] args){
         int var1 = 0b1011;
@@ -45,4 +45,23 @@ const foo = 'bar'
 const harry = 'potter'
 const hermione = 'granger'
 const ron = 'weasley'
+```
+
+
+```js
+query {
+        posts: allPost(sort: { fields: date, order: DESC }) {
+          nodes {
+            slug
+            title
+            date(formatString: "YYYY.MM.DD")
+            excerpt
+            description
+            tags {
+              name
+              slug
+            }
+          }
+        }
+      }
 ```

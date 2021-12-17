@@ -8,13 +8,13 @@ module.exports = {
     // You can also add new values here to query them like usual
     // See all options: https://github.com/LekoArts/gatsby-themes/blob/main/themes/gatsby-theme-minimal-blog/gatsby-config.js
     siteTitle: `Paik Jonghun`,
-    siteTitleAlt: `Paik Jonghun`,
+    siteTitleAlt: `Paik Jonghun Blog`,
     siteHeadline: `백종훈`,
-    siteUrl: `https://minimal-blog.lekoarts.de`,
+    siteUrl: `https://paikjonghun.github.io/`,
     siteDescription: `안녕하세요. 백종훈입니다.`,
     siteLanguage: `kr`,
-    siteImage: ``,
-    author: `@백종훈`,
+    siteImage: `/IMG_2336.jpeg`,
+    author: `@paikjonghun`,
   },
   plugins: [
     {
@@ -68,14 +68,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `minimal-blog - @lekoarts/gatsby-theme-minimal-blog`,
-        short_name: `minimal-blog`,
-        description: `Typography driven, feature-rich blogging theme with minimal aesthetics. Includes tags/categories support and extensive features for code blocks such as live preview, line numbers, and code highlighting.`,
+        name: `paikjonghun tech blog`,
+        short_name: `jonghun`,
+        description: `백종훈의 블로그`,
         start_url: `/`,
         background_color: `#fff`,
         // This will impact how browsers show your PWA/website
         // https://css-tricks.com/meta-theme-color-and-trickery/
-        // theme_color: `#6B46C1`,
+        theme_color: `#6B46C1`,
         display: `standalone`,
         icons: [
           {
@@ -135,7 +135,7 @@ module.exports = {
               }
             `,
             output: `rss.xml`,
-            title: `Minimal Blog - @lekoarts/gatsby-theme-minimal-blog`,
+            title: `Paik jonghun RSS Feed`,
           },
         ],
       },
