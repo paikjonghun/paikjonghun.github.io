@@ -7,13 +7,13 @@ module.exports = {
     // You can overwrite values here that are used for the SEO component
     // You can also add new values here to query them like usual
     // See all options: https://github.com/LekoArts/gatsby-themes/blob/main/themes/gatsby-theme-minimal-blog/gatsby-config.js
-    siteTitle: `Paik Jonghun`,
-    siteTitleAlt: `Paik Jonghun Blog`,
+    siteTitle: `Paik Jonghun`, // 사이트 맨 위 타이틀
+    siteTitleAlt: `Paik Jonghun Blog`, // 링크에서 뜨는 타이틀
     siteHeadline: `백종훈`,
-    siteUrl: `https://paikjonghun.github.io/`,
-    siteDescription: `안녕하세요. 백종훈입니다.`,
+    siteUrl: `https://www.naver.com/`,
+    siteDescription: `안녕하세요. 백종훈입니다.`, // 링크에서 뜨는 설명
     siteLanguage: `kr`,
-    siteImage: `/IMG_2336.jpeg`,
+    siteImage: `/IMG_2336.jpeg`, // 링크에서 뜨는 사진
     author: `@paikjonghun`,
   },
   plugins: [
