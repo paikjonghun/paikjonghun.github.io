@@ -7,7 +7,7 @@ module.exports = {
     // You can overwrite values here that are used for the SEO component
     // You can also add new values here to query them like usual
     // See all options: https://github.com/LekoArts/gatsby-themes/blob/main/themes/gatsby-theme-minimal-blog/gatsby-config.js
-    siteTitle: `Paik Jonghun`, // 사이트 맨 위 타이틀
+    siteTitle: `백종훈의 개발 블로그`, // 사이트 맨 위 타이틀
     siteTitleAlt: `Paik Jonghun Blog - 백종훈의 블로그`, // 링크에서 뜨는 타이틀 and 웹 브라우저에 붙는 사이트 이름과 내용
     siteHeadline: `백종훈`,
     siteUrl: `https://paikjonghun.github.io/`, // 링크에서 뜨는 이미지?
@@ -21,10 +21,10 @@ module.exports = {
       resolve: `@lekoarts/gatsby-theme-minimal-blog`,
       // See the theme's README for all available options
       options: {
-        formatString: `YYYY.MM.DD`,
+        formatString: `YYYY.MM.DD`, // 날짜 형식 변경
         navigation: [
           {
-            title: `Development`, // 페이지와 slug만 같으면 title이 달라도 연결됨
+            title: `Blog`, // 페이지와 slug만 같으면 title이 달라도 연결됨
             slug: `/blog`,
           },
           {
@@ -72,7 +72,7 @@ module.exports = {
         background_color: `#fff`,
         // This will impact how browsers show your PWA/website
         // https://css-tricks.com/meta-theme-color-and-trickery/
-        theme_color: `#6B46C1`,
+        theme_color: `#2bb32b`,
         display: `standalone`,
         icons: [
           {
