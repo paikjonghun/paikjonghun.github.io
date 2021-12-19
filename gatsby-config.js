@@ -8,7 +8,7 @@ module.exports = {
     // You can also add new values here to query them like usual
     // See all options: https://github.com/LekoArts/gatsby-themes/blob/main/themes/gatsby-theme-minimal-blog/gatsby-config.js
     siteTitle: `Paik Jonghun`, // 사이트 맨 위 타이틀
-    siteTitleAlt: `Paik Jonghun Blog`, // 링크에서 뜨는 타이틀
+    siteTitleAlt: `Paik Jonghun Blog - 백종훈의 블로그`, // 링크에서 뜨는 타이틀 and 웹 브라우저에 붙는 사이트 이름과 내용
     siteHeadline: `백종훈`,
     siteUrl: `https://paikjonghun.github.io/`, // 링크에서 뜨는 이미지?
     siteDescription: `안녕하세요. 백종훈입니다.`, // 링크에서 뜨는 설명
@@ -25,10 +25,6 @@ module.exports = {
           {
             title: `Development`, // 페이지와 slug만 같으면 title이 달라도 연결됨
             slug: `/blog`,
-          },
-          {
-            title: `Essay`,
-            slug: `/essay`,
           },
           {
             title: `About`,

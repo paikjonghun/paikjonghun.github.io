@@ -8,11 +8,11 @@ const theme = merge(tailwind, {
     useCustomProperties: true,
   },
   colors: {
-    primary: `#2BB32B`,
-    secondary: `#5f6c80`,
-    toggleIcon: tailwind.colors.gray[8],
-    heading: tailwind.colors.black,
-    divide: tailwind.colors.gray[4],
+    primary: `#2BB32B`, // 링크 같은 것 색깔 변경
+    secondary: `#5f6c80`, // 밑에 달린 것 색깔 변경
+    toggleIcon: '#2BB32B', // 토글아이콘 변경
+    heading: `#2BB32B`, // 제목 색깔 변경
+    divide: tailwind.colors.gray[4], // 나눔선 색깔 변경 
     modes: {
       dark: {
         text: tailwind.colors.gray[4],
